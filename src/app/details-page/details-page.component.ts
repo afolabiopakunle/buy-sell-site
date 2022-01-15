@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {fakeListings} from "../fake-data";
+import {Listing} from "../types";
 
 @Component({
   selector: 'app-details-page',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPageComponent implements OnInit {
 
-  constructor() { }
+  id!: number;
+  listItem!: Listing | undefined;
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.params.id;
+    const listItem = fakeListings.find((listing: Listing) => {
+      return listing.id === id
+    })
+    this.listItem = listItem;
   }
+
 
 }
