@@ -1,1 +1,11 @@
-{{ listItem?.description }}
+<div class="content-box" *ngIf="listItem">
+  <a routerLink="/listings">
+    <button>Back</button>
+  </a>
+  <h2>{{ listItem.name }}</h2>
+  <p>{{ listItem.description }}</p>
+  <p>{{ listItem.price }}</p>
+  <a routerLink="/contact/{{listItem.id}}">
+    <button>Contact Seller</button>
+  </a>
+</div>
