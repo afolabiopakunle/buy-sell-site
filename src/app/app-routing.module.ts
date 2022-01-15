@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'contact/:id', component: ContactPageComponent},
   {path: 'edit-listing/:id', component: EditListingComponent},
   {path: 'my-listings', component: MyListingsPageComponent},
-  {path: 'new-listing', component: NewListingsComponent}
+  {path: 'new-listing', component: NewListingsComponent},
+  {path: '', redirectTo: '/listings', pathMatch: 'full'}
 ];
 
 @NgModule({
