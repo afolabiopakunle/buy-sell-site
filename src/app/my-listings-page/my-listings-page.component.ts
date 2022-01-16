@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Listing} from "../types";
+import {fakeMyListings} from "../fake-data";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-my-listings-page',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyListingsPageComponent implements OnInit {
 
-  constructor() { }
+  myListings: Listing[] = [];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.myListings = fakeMyListings;
+    const id = this.route.snapshot.params.id
   }
 
+  onDeleteClicked(listingId: string) {
+    alert(`Deleting your ${listingId}`)
+  }
 }
